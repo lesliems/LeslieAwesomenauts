@@ -19,6 +19,10 @@ game.PlayScreen = me.ScreenObject.extend({
                 //adding the player to the world
                 me.game.world.addChild(gameHeroDeathManager, 0);
                 
+                var experienceManager = me.pool.pull("ExperienceManager", 0, 0, {});
+                //adding the player to the world
+                me.game.world.addChild(experienceManager, 0);
+
                 
                 //bind key for movement
                 me.input.bindKey(me.input.KEY.RIGHT, "right");
