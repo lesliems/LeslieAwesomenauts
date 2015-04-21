@@ -87,7 +87,7 @@ game.EnemyCreep = me.Entity.extend({
                 this.body.vel.x = 0;
             }
             //chacks that it has been at least 1 second since this creep hit something
-            if ((this.now - this.lastHit >= 1000) && xdif > 0) {
+            if (((this.now - this.lastHit) >= 1000) && xdif > 0) {
                 //updates the lastHit timer
                 this.lastHit = this.now;
                 //makes the player call its lostHealth function and passes

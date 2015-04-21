@@ -7,8 +7,8 @@ var game = {
 		// score
 		score : 0, 
                 enemyBaseHealth: 10,
-                playerBaseHealth: 10,
-                enemyCreepHealth: 10,
+                playerBaseHealth: 6,
+                enemyCreepHealth: 3,
                 playerHealth: 10,
                 enemyCreepAttack: 1,
                 playerAttack: 1,
@@ -49,6 +49,8 @@ var game = {
 	// Initialize the audio.
 	me.audio.init("mp3,ogg");
 
+        me.state.SPENDEXP = 112;
+
 	// Set a callback to run when loading is complete.
 	me.loader.onload = this.loaded.bind(this);
 
@@ -66,13 +68,15 @@ var game = {
                 me.pool.register("EnemyBase", game.EnemyBaseEntity);
                 me.pool.register("EnemyCreep", game.EnemyCreep, true);
                 me.pool.register("GameTimerManager", game.GameTimerManager);
-                me.pool.register("HeroDeathManager", game.heroDeathManager);
+                me.pool.register("HeroDeathManager", game.HeroDeathManager);
                 me.pool.register("ExperienceManager", game.ExperienceManager);
             
             
             
 		me.state.set(me.state.MENU, new game.TitleScreen());
 		me.state.set(me.state.PLAY, new game.PlayScreen());
+                me.state.set(me.state.SPENDEXP, new game.SpendExp());
+                
 
 		// Start the game.
 		me.state.change(me.state.MENU);

@@ -3,14 +3,14 @@ game.TitleScreen = me.ScreenObject.extend({
      *  action to perform on state change
      */
     onResetEvent: function() {
-        me.game.world.addChild(new me.Sprite(0, 0, me.loader.getImage('title-screen')), -10); // TODO
+        me.game.world.addChild(new me.Sprite(0, 0, me.loader.getImage('title-screen')), -10); 
 
 
         me.game.world.addChild(new (me.Renderable.extend({
             init: function() {
                 this._super(me.Renderable, 'init', [270, 240, 300, 50]);
                 this.font = new me.Font("Ariel", 46, "white");
-                me.input.registerPointerEvet('pointerdown', this.newGame.bind(this), true);
+                me.input.registerPointerEvent('pointerdown', this, this.newGame.bind(this), true);
                 
             },
             draw: function(renderer) {
@@ -19,7 +19,7 @@ game.TitleScreen = me.ScreenObject.extend({
                 
             },
             
-            update: function(dt){
+           update: function(dt){
                 return true;
             },
             
@@ -35,12 +35,11 @@ game.TitleScreen = me.ScreenObject.extend({
 
         })));
         
-         me.game.world.addChild(new (me.Renderable.extend({
+        me.game.world.addChild(new (me.Renderable.extend({
             init: function() {
                 this._super(me.Renderable, 'init', [380, 340, 250, 50]);
                 this.font = new me.Font("Ariel", 46, "white");
-                me.input.registerPointerEvet('pointerdown', this.newGame.bind(this), true);
-                
+                me.input.registerPointerEvent('pointerdown', this, this.newGame.bind(this), true);
             },
             draw: function(renderer) {
                 this.font.draw(renderer.getContext(), "CONTINUE", this.pos.x, this.pos.y);
@@ -60,7 +59,7 @@ game.TitleScreen = me.ScreenObject.extend({
                     game.data.exp4 = me.save.exp4;
                 
                 me.input.releasePointerEvent('pointerdown', this);
-                me.state.change(me.state.PLAY);
+                me.state.change(me.state.SPENDEXP);
             }
 
         })));
