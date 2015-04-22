@@ -42,7 +42,13 @@ game.SpendExp = me.ScreenObject.extend({
                  game.data.exp -= exp1cost;
                  exp1cost = ((Number(game.data.exp1) + 1)*10);
              }
-         }else if(action==="F5"){
+         } else if(action==="F2"){
+             
+         } else if(action==="F3"){
+             
+         } else if(action==="F4"){
+             
+         } else if(action==="F5"){
              me.state.change(me.state.PLAY);
              
          } 
@@ -54,7 +60,13 @@ game.SpendExp = me.ScreenObject.extend({
      *  action to perform when leaving this screen (state change)
      */
     onDestroyEvent: function() {
-      
+      me.input.unbindKey(me.input.KEY.F1, "F1");
+      me.input.unbindKey(me.input.KEY.F2, "F2");
+      me.input.unbindKey(me.input.KEY.F3, "F3");
+      me.input.unbindKey(me.input.KEY.F4, "F4");
+      me.input.unbindKey(me.input.KEY.F5, "F5");
+        
+      me.event.unsubscribe(this.handler);
     }
 });
 

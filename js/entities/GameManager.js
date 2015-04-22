@@ -17,7 +17,7 @@ game.GameTimerManager = Object.extend({
     goldTimerCheck: function() {
 
         if (Math.round(this.now / 1000) % 20 === 0 && (this.now - this.lastCreep >= 1000)) {
-            game.data.gold += 1;
+            game.data.gold += (game.data.exp1+1);
         }
     },
     creepTimerCheck: function() {
@@ -75,5 +75,17 @@ game.ExperienceManager = Object.extend({
 });
 
 
-
+game.SpendGold = Object.extend({
+    init: function(x, y, settings){
+          this.now = new Date().getTime();
+          //how long since you bought something
+        this.lastBuy = new Date().getTime();
+        this.paused = false;
+        this.alwaysUpdate = true;
+    },
+    
+    update: function(){
+        return true;
+    }
+});
 
