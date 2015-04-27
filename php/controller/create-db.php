@@ -8,19 +8,6 @@ require_once(__DIR__ . "/../model/config.php");
         header("Location: " . $path . "index.php");
         die();
     }
-//creates a table
-$query = $_SESSION["connection"]->query("CREATE TABLE posts ("
-        . "id int(11) NOT NULL AUTO_INCREMENT,"
-        . "title varchar(255) NOT NULL,"
-        . "post text NOT NULL,"
-        . "PRIMARY KEY (id))");
-//figure out whether the query was succsessful or not
-if ($query) {
-    echo "<p>Successfully created table: posts</p>";
-} 
-else {
-   echo "<p>" . $_SESSION["connection"]->error ."</p>";
-}
 //making the table users
 $query = $_SESSION["connection"]->query("CREATE TABLE users ("
         . "id int(11) NOT NULL AUTO_INCREMENT,"
@@ -29,6 +16,11 @@ $query = $_SESSION["connection"]->query("CREATE TABLE users ("
         . "password char(128) NOT NULL, "
         //salt is security
         . "salt char(128) NOT NULL,"
+        . "exp int(4),"
+        . "exp1 int(4),"
+        . "exp2 int(4),"
+        . "exp3 int(4),"
+        . "exp4 int(4),"
         . "PRIMARY KEY (id))");
 
 if ($query) {
