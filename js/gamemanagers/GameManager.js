@@ -1,8 +1,3 @@
-
-
-
-
-
 game.ExperienceManager = Object.extend({
     init: function(x, y, settings) {
         this.alwaysUpdate = true;
@@ -11,11 +6,13 @@ game.ExperienceManager = Object.extend({
     update: function() {
         if (game.data.win === true && !this.gameover) {
             this.gameOver(true);
+            alert("YOU WIN!");
         } else if (game.data.win === false && !this.gameover) {
             this.gameOver(false);
+            alert("YOU LOSE!")
         }
         return true;
-   },
+    },
     gameOver: function(win) {
         if (win) {
             game.data.exp += 10;
@@ -24,6 +21,35 @@ game.ExperienceManager = Object.extend({
         }
         this.gameover = true;
         me.save.exp = game.data.exp;
+
+        $.ajax({
+            type: "POST",
+            url: "php/controller/save-user.php",
+            data: {
+             exp: game.data.exp,
+              exp1: game.data.ex1p,
+               exp2: game.data.ex2p,
+                exp3: game.data.exp3,
+                 exp4: game.data.exp4,
+
+            },
+            //send back a msg saying weather it did or not go through the php code or not
+            dataType: "text"
+        })
+                .success(function(response) {
+                    //if true it will give us something
+                    if (response === "true") {
+                        me.state.change(me.state.MENU);
+                    } else {
+                        //if an error it will give a response
+                        alert(response);
+                    }
+                })
+                //if it fails it will sy alert
+                .fail(function(response) {
+                    alert("Fail");
+                });
+
 
     }
 
