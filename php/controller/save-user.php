@@ -9,7 +9,7 @@
     $exp3 = filter_input(INPUT_POST, "exp3", FILTER_SANITIZE_STRING);
     $exp4 = filter_input(INPUT_POST, "exp4", FILTER_SANITIZE_STRING);
 
-    
+    //going to update the users table
     $query = $_SESSION["connection"]->query("UPDATE users SET "
             // . "combines things"
         . "exp = $exp, "

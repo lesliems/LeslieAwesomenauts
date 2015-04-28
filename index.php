@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php
+    require_once ("php/controller/create-db.php");
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -17,6 +15,9 @@ and open the template in the editor.
         <link rel="apple-touch-icon" sizes="76x76" href="icons/touch-icon-ipad-76x76.png">
         <link rel="apple-touch-icon" sizes="120x120" href="icons/touch-icon-iphone-retina-120x120.png">
         <link rel="apple-touch-icon" sizes="152x152" href="icons/touch-icon-ipad-retina-152x152.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 	</head>
 	<body>
 		<!-- Canvas placeholder -->
@@ -100,5 +101,65 @@ and open the template in the editor.
 				}
 			});
 		</script>
+                
+                <script>
+                    $("#mainmenu").bind("click", function(){
+                        me.state.change(me.state.MENU);
+                    });
+                    //when you click on the button register, its going to take all your info and pass it to the create-user.php
+                     $("#register").bind("click", function(){
+                          $.ajax({
+                              type: "POST",
+                              url: "php/controller/create-user.php",
+                              data: {
+                                  username: $('#username').val(),
+                                  password: $('#password').val()
+                                  
+                              },
+                              //send back a msg saying weather it did or not go through the php code or not
+                              dataType: "text"
+                          })
+                                  .success(function(response){
+                                      //if true it will give us something
+                                     if(response ==="true"){
+                                         me.state.change(me.state.PLAY);
+                                     }else{
+                                         //if an error it will give a response
+                                         alert(response);
+                                     }   
+                          })
+                  //if it fails it will sy alert
+                          .fail(function(response){
+                              alert("Fail");
+                          });
+                    });
+                     $("#load").bind("click", function(){
+                          $.ajax({
+                              type: "POST",
+                              url: "php/controller/login-user.php",
+                              data: {
+                                  username: $('#username').val(),
+                                  password: $('#password').val()
+                                  
+                              },
+                              //send back a msg saying weather it did or not go through the php code or not
+                              dataType: "text"
+                          })
+                                  .success(function(response){
+                                      //if true it will give us something
+                                     if(response ==="Invalid username and password"){
+                                         me.state.change(me.state.PLAY);
+                                     }else{
+                                         //if an error it will give a response
+                                         alert(response);
+                                     }   
+                          })
+                  //if it fails it will sy alert
+                          .fail(function(response){
+                              alert("Fail");
+                          });
+                    });
+                    </script>
+                    </script>
 	</body>
 </html>
