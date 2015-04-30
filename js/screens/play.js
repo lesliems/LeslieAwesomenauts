@@ -27,6 +27,9 @@ game.PlayScreen = me.ScreenObject.extend({
                 //adding the player to the world
                 me.game.world.addChild(spendGold, 0);
                 
+                game.data.minimap = me.pool.pull("minimap", 10, 10, {});
+                me.game.world.addChild(game.data.minimap, 30);
+                
                 //bind key for movement
                 me.input.bindKey(me.input.KEY.B, "buy");
                 me.input.bindKey(me.input.KEY.Q, "skill1");
