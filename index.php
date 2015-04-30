@@ -121,7 +121,7 @@
                           })
                                   .success(function(response){
                                       //if true it will give us something
-                                     if(response ==="true"){
+                                     if(response ==="True"){
                                          me.state.change(me.state.PLAY);
                                      }else{
                                          //if an error it will give a response
