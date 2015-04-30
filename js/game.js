@@ -37,7 +37,8 @@ var game = {
         pausePos: "",
         buyscreen: "",
         buyText: "",
-        minimap: ""
+        minimap: "",
+        miniPlayer: ""
    },
     // Run on page load.
     "onload": function() {
@@ -85,6 +86,7 @@ var game = {
         me.pool.register("GameTimeManager", game.GameTimerManager);
         me.pool.register("spear", game.SpearThrow);
         me.pool.register("minimap", game.MiniMap, true);
+        me.pool.register("miniplayer", game.MiniMapLocation, true);
 
 
         me.state.set(me.state.MENU, new game.TitleScreen());
