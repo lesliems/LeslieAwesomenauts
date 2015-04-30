@@ -15,7 +15,7 @@ game.SpearThrow = me.Entity.extend({
         this.body.setVelocity(8, 0);
         this.attack = game.data.ability3*3;
         this.type = "spear";
-        this.facing = facing
+        this.facing = facing;
 
     },
     update: function(delta){
@@ -37,7 +37,9 @@ game.SpearThrow = me.Entity.extend({
     },
     
     collideHandler: function(response) {
-        if (response.b.type === 'EnemyBase' || esponse.b.type === 'EnemyCreep') {
+        //if both enemy base and enemy creep is attacked and dies
+        //it will be removed from the game
+        if (response.b.type === 'EnemyBase' || response.b.type === 'EnemyCreep') {
                 response.b.loseHealth(this.attack);
                 me.game.world.removeChild(this);
             }

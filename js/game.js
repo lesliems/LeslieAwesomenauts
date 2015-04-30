@@ -22,7 +22,7 @@ var game = {
         spearTimer: "15",
         player: "",
         exp: 0,
-        gold: 0,
+        gold: 11,
         ability1: 0,
         ability2: 0,
         ability3: 0,

@@ -8,7 +8,7 @@ game.PlayScreen = me.ScreenObject.extend({
                 //teliing it what to look at as far as maps
                 me.levelDirector.loadLevel("level101");
                 
-                this.resetPlayer(0, 420);
+                this.resetPlayer(10, 0);
                 
                 var gameTimerManager = me.pool.pull("GameTimerManager", 0, 0, {});
                 //adding the player to the world
@@ -56,10 +56,9 @@ game.PlayScreen = me.ScreenObject.extend({
 	},
         
         resetPlayer: function(x, y){
-            this.resetPlayer(10, 0);
              //pulling the player and setiing where he will show up
                 game.data.player = me.pool.pull("player", x, y, {});
-                me.game.world.addChild(game.data.player, 5);
+                me.game.world.addChild(game.data.player, 10);
                 game.data.miniPlayer = me.pool.pull("minimap", 10, 10, {});
                 me.game.world.addChild(game.data.miniPlayer, 31);
         }

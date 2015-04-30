@@ -21,16 +21,17 @@ game.EnemyCreep = me.Entity.extend({
         this.lastHit = new Date().getTime();
         this.now = new Date().getTime();
         this.body.setVelocity(3, 20);
-
+        //setting the enemy creeps's animation
         this.type = "EnemyCreep";
-
         this.renderable.addAnimation("walk", [3, 4, 5], 80);
         this.renderable.setCurrentAnimation("walk");
 
     },
+    //the current health minus the damage it took
     loseHealth: function(damage) {
         this.health = this.health - damage;
     },
+    //if the health is less than or equal to 0 the character will be removed
     update: function(delta) {
         if (this.health <= 0) {
             

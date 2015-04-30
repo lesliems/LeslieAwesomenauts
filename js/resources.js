@@ -18,7 +18,7 @@ game.resources = [
          {name: "metaltex", type:"image", src: "data/img/metaltex.jpg"},
           {name: "galaxy", type:"image", src: "data/img/galaxy.png"},
            {name: "future", type:"image", src: "data/img/future.jpg"},
-           {name: "minimap", type:"image", src: "data/img/minimap.png"},
+           {name: "minimap", type:"image", src: "data/img/miniMap.png"},
 
                   
 	/* Atlases 

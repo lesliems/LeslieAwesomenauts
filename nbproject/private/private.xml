@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>js/entities/GameManager.js</url>
+            <bookmark id="1">
+                <name/>
+                <line>32</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/LesliesAwesomenauts/js/game.js</file>
+            <file>file:/C:/xampp/htdocs/LesliesAwesomenauts/js/entities/MiniPlayerLocation.js</file>
+            <file>file:/C:/xampp/htdocs/LesliesAwesomenauts/js/gamemanagers/HeroDeathManager.js</file>
+            <file>file:/C:/xampp/htdocs/LesliesAwesomenauts/js/entities/SpearThrow.js</file>
+            <file>file:/C:/xampp/htdocs/LesliesAwesomenauts/js/entities/MiniMap.js</file>
+            <file>file:/C:/xampp/htdocs/LesliesAwesomenauts/js/entities/entities.js</file>
+            <file>file:/C:/xampp/htdocs/LesliesAwesomenauts/js/screens/play.js</file>
+            <file>file:/C:/xampp/htdocs/LesliesAwesomenauts/js/resources.js</file>
+            <file>file:/C:/xampp/htdocs/LesliesAwesomenauts/js/screens/title.js</file>
+            <file>file:/C:/xampp/htdocs/LesliesAwesomenauts/js/gamemanagers/GameTimerManager.js</file>
+        </group>
+    </open-files>
+</project-private>

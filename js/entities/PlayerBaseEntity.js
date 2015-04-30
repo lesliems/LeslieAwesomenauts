@@ -23,6 +23,8 @@ game.PlayerBaseEntity = me.Entity.extend({
 
 
     },
+    // if health is less than or equal to 0 then the broken annimation will occur
+    //then the you loose the game
     update: function(delta) {
         if (this.health <= 0) {
             this.broken = true;
@@ -34,6 +36,7 @@ game.PlayerBaseEntity = me.Entity.extend({
         this._super(me.Entity, "update", [delta]);
         return true;
     },
+    //the health is equal to the current health minus the damage it took
     loseHealth: function(damage) {
         this.health = this.health - damage;
     },

@@ -2,6 +2,7 @@ game.MiniPlayerLocation = me.Entity.extend({
     init: function(x, y, settings){
         //setting up settings
         this.settings = settings;
+        //r is radius
         this.r = 5;
         this.diameter = (this.r+2)*2;
         this.anchorPoint = new me.Vector2d(0, 0);
@@ -50,8 +51,8 @@ game.MiniPlayerLocation = me.Entity.extend({
     },
     
     update: function(){
-      this.pos.x = (10 + (game.data.player.pos.x*0.062));
-      this.pos.y = (10 + (game.data.player.pos.y*0.06));
+      this.pos.x = (10 + (game.data.player.pos.x*0.25));
+      this.pos.y = (10 + (game.data.player.pos.y*0.25));
       return true;
     }
     

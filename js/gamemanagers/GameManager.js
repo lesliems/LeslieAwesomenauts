@@ -4,22 +4,28 @@ game.ExperienceManager = Object.extend({
         this.gameover = false;
     },
     update: function() {
+        // if i win the game (if true) and is not game over 
+        //then you win if not you lose
         if (game.data.win === true && !this.gameover) {
             this.gameOver(true);
             alert("YOU WIN!");
         } else if (game.data.win === false && !this.gameover) {
             this.gameOver(false);
-            alert("YOU LOSE!")
+            alert("YOU LOSE!");
         }
         return true;
     },
     gameOver: function(win) {
+        //if you win then 10 exp  will be added to your current exp
+        // otherwise you will only gain 1 exp
         if (win) {
             game.data.exp += 10;
         } else {
             game.data.exp += 1;
         }
+ 
         this.gameover = true;
+        // saving your exp
         me.save.exp = game.data.exp;
 
         $.ajax({

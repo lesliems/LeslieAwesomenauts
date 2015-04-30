@@ -1,5 +1,5 @@
 <?php
-    require_once(__DIR__ . "/../model/congfig.php");
+    require_once(__DIR__ . "/../model/config.php");
     
     //taking the exp var and storing them as exp
     

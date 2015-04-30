@@ -16,12 +16,15 @@ game.EnemyBaseEntity = me.Entity.extend({
         this.alwaysUpdate = true;
         this.body.onCollision = this.onCollision.bind(this);
 
+        //adding the broken animation to the enemybase
         this.type = "EnemyBaseEntity";
         this.renderable.addAnimation("idle", [0]);
         this.renderable.addAnimation("broken", [1]);
         this.renderable.setCurrentAnimation("idle");
 
     },
+    //if health is less than or equal to 0, the broke animation will show 
+    //and you will win
     update: function(delta) {
         if (this.health <= 0) {
             this.broken = true;

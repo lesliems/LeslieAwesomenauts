@@ -69,6 +69,7 @@ game.PlayerEntity = me.Entity.extend({
     },
     
     checkIfDead: function() {
+        // if health is less than or equal to 0 then it will return true
         if (this.health <= 0) {
             return true;
         }
@@ -77,6 +78,7 @@ game.PlayerEntity = me.Entity.extend({
     
     checkKeyPressesAndMove: function() {
         //check if key was pressed
+        //if the right/left/jump key is pressed it will move right/left or jump
         if (me.input.isKeyPressed("right")) {
             this.moveRight();
         } else if (me.input.isKeyPressed("left")) {
@@ -199,6 +201,7 @@ game.PlayerEntity = me.Entity.extend({
     },
     
     stopMovement: function(xdif) {
+        //if the character's velocity is zero then it will face left else right
         if (xdif > 0) {
             this.pos.x = this.pos.x + 1;
             if (this.facing === "left") {
@@ -214,7 +217,6 @@ game.PlayerEntity = me.Entity.extend({
     },
     
     checkAttack: function(xdif, ydif) {
-
         if (this.renderable.isCurrentAnimation("attack") && this.now - this.lastHit >= game.data.playerAttackTimer
                 && (Math.abs(ydif) <= 40) &&
                 (((xdif > 0) && this.facing === "left") || (xdif < 0) && this.facing === "right")
