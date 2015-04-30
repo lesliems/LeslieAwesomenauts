@@ -53,6 +53,7 @@ game.PlayScreen = me.ScreenObject.extend({
 	},
         
         resetPlayer: function(x, y){
+            this.resetPlayer(10, 0);
              //pulling the player and setiing where he will show up
                 game.data.player = me.pool.pull("player", x, y, {});
                 me.game.world.addChild(game.data.player, 5);
